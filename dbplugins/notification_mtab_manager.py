@@ -176,9 +176,9 @@ async def on_new_private_message(event):
         # don't log verified accounts
         return
 
-    """if not pmpermit_sql.is_approved(chat_id):
+    if not pmpermit_sql.is_approved(chat_id):
         # pm permit
-        await do_pm_permit_action(chat_id, event)"""
+        await do_pm_permit_action(chat_id, event)
 
     if not no_log_pms_sql.is_approved(chat_id):
         # log pms
@@ -244,21 +244,21 @@ async def on_new_channel_message(event):
         )
 
 
-"""@borg.on(events.Raw())
+@borg.on(events.Raw())
 async def _(event):
     if Config.PM_LOGGR_BOT_API_ID is None:
         return
     if tgbot is None:
         return
-    logger.info(event.stringify())"""
+    logger.info(event.stringify())
 
 
-"""if tgbot is not None:
+if tgbot is not None:
     @tgbot.on(events.Raw())
     async def _(event):
         if Config.PM_LOGGR_BOT_API_ID is None:
             return
-        logger.info(event.stringify())"""
+        logger.info(event.stringify())
 
 
 async def do_pm_permit_action(chat_id, event):
